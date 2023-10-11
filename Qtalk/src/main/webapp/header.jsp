@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="style.css" rel="stylesheet">
+<link href="css/hj-style.css" rel="stylesheet">
 </head>
 <body>
 	<header class="header">
