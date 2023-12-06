@@ -24,8 +24,13 @@ public class TestBoardServiceImpl implements TestBoardService {
 		int maxPage = (int)Math.ceil((double)testBoardCount/10);
 		int startPage = (page-1)/10*10+1;
 		int endPage = startPage+10-1;
-		if(endPage>maxPage) endPage=maxPage;
-		if(page>maxPage) page=maxPage;
+		if(testBoardCount == 0) {
+			endPage=1;
+			maxPage=1;
+		} else if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+		if(page > maxPage) page = maxPage;
 			
 			
 		pageInfo.setAllPage(maxPage);
@@ -108,6 +113,27 @@ public class TestBoardServiceImpl implements TestBoardService {
 	public void TestBoardDelete(Integer num) throws Exception {
 		testBoardDao.deleteTestBoard(num);
 		
+	}
+
+
+	// 특정 id 게시판 모두 삭제
+	@Override
+	public void boardDeleteAll(String id) throws Exception {
+		testBoardDao.deleteBoardAll(id);
+	}
+
+
+
+	@Override
+	public List<String> boardNumList(String id) throws Exception {
+		return testBoardDao.selectBoardNum(id);
+	}
+
+
+	// testboardDAO 에서 id로 testboard List 가져오기
+	@Override
+	public List<TestBoard> myWriteTestBoard(String id) throws Exception {
+		return testBoardDao.selectIdBoardList(id);
 	}
 	
 

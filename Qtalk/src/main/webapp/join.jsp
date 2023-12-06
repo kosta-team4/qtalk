@@ -7,7 +7,7 @@
 	<link href="css/join.css" rel="stylesheet" />
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="js/join.js"></script>
-	<title>회원가입</title>
+	<title>Qtalk | 회원가입</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -15,7 +15,7 @@
 		<div id="goback">
 			<img src="https://cdn-icons-png.flaticon.com/128/8371/8371124.png"
 				style="width: 20px; margin-bottom: -2px;"> <a
-				href="..\index.html">뒤로가기</a>
+				href="javascript: history.back();">뒤로가기</a>
 		</div>
 		<form action="join" method="post">
 			<div id="joinspace">
@@ -40,7 +40,7 @@
 				</div>
 				<div id="emailtext">
 					<label for="email" class="textlabel">이메일</label>
-					<input type="email" name="email" id="email"class="textinput"  required="required">
+					<input type="email" name="email" id="email"class="textinput" required="required">
 					<input type="button" id="emailCheck" class="emailduplicationbtn" value="중복확인">
 				</div>
 				<div class="joinbtn">

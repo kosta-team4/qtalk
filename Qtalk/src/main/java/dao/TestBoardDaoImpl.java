@@ -44,16 +44,8 @@ public class TestBoardDaoImpl implements TestBoardDao {
 		sqlSession.commit();
 	}
 
-	@Override
-	public Integer searchTestBoardCount(Map<String, Object> param) throws Exception {
-		return sqlSession.selectOne("mapper.testboard.searchTestBoardCount",param);
-	}
+	
 
-	/*
-	 * @Override public List<TestBoard> searchBoardList(Map<String, Object> param)
-	 * throws Exception { return
-	 * sqlSession.selectList("mapper.testboard.searchBoardList",param); }
-	 */
 
 	@Override
 	public void updateTestBoardViewCount(Integer viewcount) throws Exception {
@@ -77,6 +69,27 @@ public class TestBoardDaoImpl implements TestBoardDao {
 	@Override
 	public List<TestBoard> searchTestBoardList(Map<String, Object> param) throws Exception {
 		return sqlSession.selectList("mapper.testboard.searchTestBoardList",param);
+	}
+	@Override
+	public Integer searchTestBoardCount(Map<String, Object> param) throws Exception {
+		return sqlSession.selectOne("mapper.testboard.searchTestBoardCount",param);
+	}
+	// writer가 id인 게시판 모두 삭제
+	@Override
+	public void deleteBoardAll(String id) throws Exception {
+		sqlSession.delete("mapper.testboard.deleteBoardAll", id);
+		sqlSession.commit();
+	}
+
+	@Override
+	public List<String> selectBoardNum(String id) throws Exception {
+		return sqlSession.selectList("mapper.testboard.selectBoardNum", id);
+	}
+
+	// testboard DB에서 writer = id인 testboard List 가져오기
+	@Override
+	public List<TestBoard> selectIdBoardList(String id) throws Exception {
+		return sqlSession.selectList("mapper.testboard.selectIdTestBoardList", id);
 	}
 
 

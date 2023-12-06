@@ -4,15 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/freeboardwrite.css" rel="stylesheet" />
-<title>자우게시판 글쓰기</title>
+<link href="css/freeboardwrite.css" rel="stylesheet" type="text/css">
+<title>Qtalk | 자유게시판</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
 	<!--게시글 작성 폼 시작-->
+
 	<div class="board_header">
 		<div class="board_title">자유게시판 게시글 작성하기</div>
-		<div class="writer" id="writer">${member.id }</div>
+		<div class="writer" id="writer" style="font-family: 'Pretendard-Regular';">${member.id }</div>
 	</div>
 	<hr>
 	<form action="freeboardwrite" method="post" enctype="multipart/form-data"
@@ -39,14 +40,15 @@
 		<div class="button">
 			<input class="btn1" type="submit" value="등록" />&nbsp;&nbsp; <input
 				class="btn2" type="button" value="취소"
-				onclick="location.href='freeboard.jsp'" />
+				onclick="location.href='freeboard'" />
 		</div>
 	</div>
 	</form>
+
 	<!--게시글 작성 폼 끝-->
 
 	<div class="list-back-btn">
-		<span><a href="..\MiniProj\freeboard.jsp">목록</a></span>
+		<span><a href="freeboard">목록</a></span>
 	</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -55,4 +56,39 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 		sqlSession.commit();
 		
 	}
+	
+	// writer가 id인 게시판 모두 삭제
+	@Override
+	public void deleteBoardAll(String id) throws Exception {
+		sqlSession.delete("mapper.freeboard.deleteBoardAll",id);
+		sqlSession.commit();
+	}
+	// 
+	@Override
+	public List<String> selectBoardNum(String id) throws Exception {
+		return sqlSession.selectList("mapper.freeboard.selectBoardNum", id);
+	}
+
+	
+	// freeboard DB에서 writer = id인 freeboard List 가져오기
+	@Override
+	public List<FreeBoard> selectIdFreeBoardList(String id) throws Exception {
+		return sqlSession.selectList("mapper.freeboard.selectIdFreeBoardList", id);
+	}
+
+
+	@Override
+	public Integer searchFreeBoardCount(Map<String, Object> param) throws Exception {
+		return sqlSession.selectOne("mapper.freeboard.searchFreeBoardCount",param);
+	}
+	@Override
+	public List<FreeBoard> searchFreeBoardList(Map<String, Object> param) throws Exception {
+		return sqlSession.selectList("mapper.freeboard.searchFreeBoardList",param);
+	}
+	@Override
+	public void deleteFreeBoard(Integer num) throws Exception {
+		sqlSession.delete("mapper.freeboard.deleteFreeBoard",num);
+		sqlSession.commit();
+	}
+
 }

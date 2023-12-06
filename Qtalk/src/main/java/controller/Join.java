@@ -44,11 +44,6 @@ public class Join extends HttpServlet {
 		String nickname = request.getParameter("nickname");
 		String email = request.getParameter("email");
 		
-//		if(!(password1.equals(password2))) {
-//			request.setAttribute("err", "비밀번호가 일치하지 않습니다.");
-//			request.getRequestDispatcher("error.jsp").forward(request, response);
-//		}
-		
 		try {
 			Member member = new Member(id,password,nickname,email);
 			MemberService memberservice = new MemberServiceImpl();
@@ -56,7 +51,7 @@ public class Join extends HttpServlet {
 			response.sendRedirect("login");
 		} catch(Exception e) {
 			request.setAttribute("err", e.getMessage());
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			request.getRequestDispatcher("join.jsp").forward(request, response);
 		}
 		
 	}

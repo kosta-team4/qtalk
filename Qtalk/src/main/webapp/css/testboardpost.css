@@ -20,7 +20,10 @@
 	width: 65%;
 	margin: 0 auto;
 }
-
+.div {
+	display: flex;
+	font-family: 'Pretendard-Regular';
+}
 hr {
 	width: 100%;
 	height: 3px;
@@ -35,30 +38,59 @@ hr {
 	overflow: auto;
 }
 
-.testboard_title {
-	margin-bottom: 20px;
-	font-weight: bold;
-	text-align: center;
-	font-size: 1.3em;
+.viewmore {
+    position: absolute;
+    top:30%;
+    right : 0%;
+    display: inline-block;
+    color: lightgray;
+    font-family: 'Pretendard-Regular';
+}
+#image {
+    cursor: pointer;
 }
 
-.div {
-	display: flex;
+.sub_title{
+	width :fit-content;
+	margin : 0 auto;
+
 }
 .testboard_subject {
 	font-weight: bold;
-	width : 200px;
+	font-size : 0.8em;
+	color : grey;
+	font-family: 'Pretendard-Regular';
+	text-align: center;
+}
+
+.testboard_title {
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 1.3em;
+	text-align: center;
+	font-family: 'Pretendard-Regular';
 }
 
 .testboard_writer {
-	font-weight: bold;	
+	font-family: 'Pretendard-Regular';
+	font-weight: bold;
 }
 
-.testview_cnt {
-	color: lightgray;
-	font-weight: bold;
+.writedate{
+	color: rgb(158, 158, 158);
 	position: absolute;
-	right: 21%;
+	right: 2%;
+	top:66%;
+	font-size: 12px;
+	font-family: 'Pretendard-Regular';
+}
+.testview_cnt {
+	color: rgb(158, 158, 158);
+	position: absolute;
+	right: 2%;
+	top:0%;
+	font-size: 12px;
+	font-family: 'Pretendard-Regular';
 }
 
 textarea {
@@ -131,6 +163,32 @@ textarea {
 	border-radius: 10px;
 	width: 50px;
 	cursor: pointer;
-	text-align: center;
 	line-height: normal;
 }
+
+
+button{
+	background-color: white;
+}
+
+#dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    min-width: 100px;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+#dropdown a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+#dropdown a:hover {
+    background-color: white;
+    }

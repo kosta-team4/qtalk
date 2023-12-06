@@ -16,11 +16,6 @@ a {
 	color: black;
 }
 
-a {
-	text-decoration: none;
-	color: black;
-}
-
 .header {
 	height: 100px;
 }
@@ -35,20 +30,24 @@ a {
 	align-items: center;
 	cursor: pointer;
 }
+#goback > a {
+	font-family: 'Pretendard-Regular';
+}
 
 #changeinfospace {
+	padding-top: 30px;
 	width: 60%;
 	margin: 0 auto 0 auto;
-	background-color: #FDFDFD;
 }
 
 #changeinfospace>p {
-	height: 50px;
 	margin: 0 auto 14.5px auto;
+	height: 80px;
 	padding-top: 31px;
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
+	font-family: 'Pretendard-Regular';
 }
 
 .nicknametext {
@@ -58,6 +57,23 @@ a {
 	border: 1px solid gainsboro;
 	display: flex;
 	align-items: center;
+}
+
+.nicknametext > label,
+.passwordchange > label,
+.passwordchange > label {
+	font-family: 'Pretendard-Regular';
+}
+
+.passwordBtn {
+	width: 50%;
+	height: 30px;
+	margin: 0 auto 5px auto;
+	display: flex;
+	align-items: center;
+}
+.passwordBtn>label>span{
+	font-family: 'Pretendard-Regular';
 }
 
 #nicknameduplication {
@@ -124,5 +140,25 @@ a {
 	height: 50px;
 	font-weight: bold;
 	font-size: 1.2em;
+	cursor: pointer;
+}
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.passwordBtn > label > .swtich {
+	border: none;
+	background-color: white;
+	font-weight: bold;
+	font-size: 15px;
+	color: #8B9DC3;
+}
+
+.passwordchange > #password1_,
+.passwordchange > #password2_ {
+	color: #D3D3D3;
 	cursor: pointer;
 }

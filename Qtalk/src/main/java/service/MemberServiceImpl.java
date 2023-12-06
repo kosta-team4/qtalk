@@ -3,6 +3,8 @@ package service;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.ibatis.javassist.compiler.MemberResolver;
+
 import dao.MemberDAO;
 import dao.MemberDAOImpl;
 import dto.Member;
@@ -27,6 +29,13 @@ public class MemberServiceImpl implements MemberService {
 		if(member.getPassword().equals(password)==false) throw new Exception("비밀번호 오류");
 		return member;
 	}
+	
+	// 회원탈퇴
+	@Override
+	public void memberDelete(String id) throws Exception {
+		memberDao.deleteMember(id);
+	}
+	// 내 정보 수정 (닉네임, 비밀번호)
 	@Override
 	public void memberchange(Member member) throws Exception {
 		memberDao.updateMember(member);
@@ -68,6 +77,11 @@ public class MemberServiceImpl implements MemberService {
 		Member member = memberDao.selectMemberWhereEmail(email);
 		if(member == null) return true;
 		return false;
+	}
+
+	@Override
+	public Member selectMember(String id) throws Exception {
+		return memberDao.selectMember(id);
 	}
 
 }

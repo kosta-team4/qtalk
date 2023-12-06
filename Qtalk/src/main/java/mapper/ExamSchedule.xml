@@ -4,5 +4,33 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.examschedule">
-
+	<select id="selectRoundList" resultType="ExamSchedule">
+		<![CDATA[
+			select * from examschedule where num<10
+		]]>
+	</select>
+	
+	<select id="selectJmImTotestdetail" parameterType="Integer" resultType="ExamSchedule">
+		 <![CDATA[
+			SELECT * FROM examschedule WHERE num=#{num}	
+		]]>
+		
+	</select>
+	
+	<select id="selectedSubjectRound" parameterType="String" resultType="String">
+		SELECT implplannm FROM examschedule
+		where jmfldnm = #{subject}
+	</select>
+	
+	<select id="selectSubjectSchedule" resultType="ExamSchedule">
+		<![CDATA[
+			SELECT jmfldnm, implplannm, if(docregstartdt >= '2023-08-01', docregstartdt, NULL) ,docregenddt, if(pracregstartdt >= '2023-08-01', pracregstartdt, NULL), pracregstartdt, pracregenddt FROM examschedule
+			WHERE jmfldnm LIKE '%기사%' AND (docregstartdt >= '2023-08-01' OR pracregstartdt >= '2023-08-01') ORDER BY docregstartdt, pracregstartdt;
+		]]>
+	</select>
+	
+	<select id="selectTestSchedule" parameterType="String" resultType="ExamSchedule">
+			select * from examschedule
+			where jmfldnm like #{%search%}
+	</select>
 </mapper>

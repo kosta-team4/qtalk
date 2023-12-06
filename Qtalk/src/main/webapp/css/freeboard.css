@@ -12,6 +12,9 @@
 * {
 	font-family: 'Pretendard-Regular';
 }
+.write{
+font-family: 'Pretendard-Regular';	
+}
 
 .header {
 	height: 100px;
@@ -27,15 +30,15 @@ a {
 	text-align: center;
 	font-family: 'Pretendard-Regular';
 	padding: 10px;
-	width: 60%;
+	width: 50%;
 	margin: 10px auto;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 .search {
-	height: 30px;
 	margin-left: 10px;
 	margin-right: 10px;
+	max-height : 34px;
 	border: 1px;
 	border-radius: 10px;
 	background-color: #D6E6FF;
@@ -45,14 +48,26 @@ a {
 }
 
 #search {
-	width: 95%;
-	min-width: 60%;
+	width:80%;
+	min-width: 50%;
 	margin: 0px;
 	border: 1px;
 	border-radius: 10px;
-	padding: 10px;
 	color: rgb(116, 111, 111);
 	background-color: rgba(0, 0, 0, 0);
+}
+#selectbar{
+	width: 78px;
+    margin-left: 0px;	
+    outline: none;
+    background-color: transparent;
+    border: 2px;
+    border-radius: 10px;
+    border-color: #1D2C62;
+    text-align: center;
+    color: #3B5998;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .container {
@@ -60,7 +75,7 @@ a {
 	margin: 20px;
 	border: 1px solid;
 	border-color: #e4e4e4;
-	width: 60%;
+	width: 50%;
 	margin: 0 auto;
 }
 
@@ -73,15 +88,6 @@ a {
 	font-weight: bold;
 }
 
-.post {
-	overflow-anchor: auto;
-	margin: 13px;
-	padding: 30px;
-	border: 1px;
-	display: flex;
-	border-bottom: 1px solid lightgray;
-}
-
 .subject {
 	margin-left: 10px;
 	margin-right: 10px;
@@ -91,29 +97,79 @@ a {
 	overflow: hidden;
 }
 
+.post {
+	height:30px;
+	overflow-anchor: auto;
+	margin: 13px;
+	padding: 30px;
+	border: 1px;
+	display: flex;
+	border-bottom: 1px solid lightgray;
+}
+.postnum{
+	font-size : 16px;
+	font-family: 'Pretendard-Regular';
+	color: #3B5998;
+	width : 15%;
+	margin-left:10px;
+	margin-right:10px;
+}
+.left{
+	width:90%
+}
 .title {
-	max-width: 60%;
+	max-width: 100%;
 	color: rgb(116, 111, 111);
+	font-family: 'Pretendard-Regular';
+	width:100%;
+	height : 100%;
+	}
+.left_bot{
+	display : flex;
+	
 }
-
-.commentcnt {
-	margin-left: 10px;
-	font-weight: bold;
+.writer {
+	font-size: 12px;
 	overflow: hidden;
+	font-family: 'Pretendard-Regular';
+	margin-right: 12px;
+	color: gray;
 }
-
 .viewcnt {
-	position: absolute;
-	right: 23%;
-	font-weight: bold;
-	float: right;
+	font-size: 12px;
 	overflow: hidden;
+	font-family: 'Pretendard-Regular';
+	margin-right: 12px;
+	color: gray;
+}
+.right{
+	position :inherit;
+	width : 10%;
+	height : 100%
+	
+}
+
+.commentcnt{
+	font-weight: bold;
+	font-size: 15px;
+	overflow: hidden;
+	font-family: 'Pretendard-Regular';
+	position: absolute;
+}
+
+.writedate{
+	font-size: 12px;
+	overflow: hidden;
+	font-family: 'Pretendard-Regular';
+	color: gray;
 }
 
 #emptyArea {
 	margin: auto;
 	width: 800px;
 	text-align: center;
+	margin-top: 20px;
+	font-family: 'Pretendard-Regular';
 }
 
 #emptyArea a {
@@ -131,5 +187,6 @@ a {
 }
 
 #emptyArea .select {
-	background: lightblue;
+	color: #3B5998;
+	font-weight: bold;
 }

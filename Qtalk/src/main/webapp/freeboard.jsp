@@ -6,38 +6,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Qtalk | FreeBoard</title>
 <link href="css/freeboard.css" rel="stylesheet" type="text/css">
+<title>Qtalk | 자유게시판</title>
 </head>
 <body>
    <%@ include file="header.jsp"%>
-   <div class="board-title">
-      <h1 style="margin-bottom: 50px;">자유게시판</h1>
-      <div class="search" style="position: relative;">
-         <input type="text" id="search" style="outline: none;">
-         
-         <button class="search-btn">
-            <i class="fas fa-search"
-               style="width: 20px; position: absolute; right: 25px; top: 20%;"></i>
-         </button>
-
-      </div>
+  <div class="board-container">
+  <div class="board-title">
+      <h1 style="margin-bottom: 50px;"><a href="freeboard" style="font-family: 'Pretendard-Regular';">자유게시판</a></h1>
+      <form action="freeboardsearch" method="post" id="searchform">    
+     	 <div class="search" style="position: relative;">
+     	 	<select name="type" id="selectbar">
+        		<option value="all">선택</option>
+				<option value="title" ${ res.type eq 'title' ? 'selected' : ''}>제목</option>
+				<option value="nickname" ${ res.type eq 'nickname' ? 'selected' : ''}>작성자</option>
+				<option value="content" ${ res.type eq 'content' ? 'selected' : ''}>내용</option>
+        	</select>
+        	 <input type="text" id="search" name="keyword" style="outline: none;">
+        	 <button class="search-btn"><i class="fas fa-search" style="width: 20px; position: absolute; right: 25px; top: 20%;"></i></button>
+  	    </div>
+      </form> 
    </div>
-
-   <form action="freeboard" method="post">
+	
+  <!--  <form action="freeboard" method="post"> -->
       <div class="container">
          <div class="write">
-            <a href="freeboardwrite">글쓰기</a>
-         </div>
-         <c:forEach items="${res.boardList }" var="freeboard">
+            <a href="freeboardwrite">글쓰기</a></div>
+         <c:forEach items="${res.freeBoardList}" var="freeboard">
             <div class="post">
-               <div class="title"><a href="freeboarddetail?num=${freeboard.num }">${freeboard.title }</a></div>
-               <div class="commentcnt">${freeboard.commentcount }</div>
-               <div class="viewcnt"> 조회수 &#40; ${freeboard.viewcount } &#41; </div>
+           		<div class="postnum">${freeboard.num }</div>
+           		<div class="left" >
+	               	<div class="title"><a href="freeboarddetail?num=${freeboard.num }">${freeboard.title }</a></div>
+	               	<div class="left_bot">
+	               	<div class="writer">작성자 : ${freeboard.nickname}</div>
+	               	<div class="viewcnt">조회 : ${freeboard.viewcount }</div>	               	
+	               	<div class="writedate">${freeboard.writedate }</div>
+	               	</div>
+           		</div>
+           		<div class="right">
+	               	<div class="commentcnt"> 댓글 &#40; ${freeboard.commentcount } &#41; </div>
+           		</div>
             </div>
          </c:forEach>
       </div>
-   </form>
+   <!-- </form> -->
+   
+   
+   <!-- 페이지 수 표시 시작 -->
    <div id="emptyArea">
       <c:choose>
          <c:when test="${res.pageInfo.curPage>1}">
@@ -53,10 +68,10 @@
          end="${res.pageInfo.endPage}" var="i">
          <c:choose>
             <c:when test="${res.pageInfo.curPage==i}">
-               <a href="boardlist?page=${i}" class="select" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
+               <a href="freeboard?page=${i}" class="select" style="font-family: 'Pretendard-Regular';" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
                     </c:when>
             <c:otherwise>
-               <a href="boardlist?page=${i}" class="btn" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
+               <a href="freeboard?page=${i}" class="btn" style="font-family: 'Pretendard-Regular';" onclick="callBtn(${i}); return ${res.keyword==null};">${i}</a>&nbsp;
                     </c:otherwise>
          </c:choose>
       </c:forEach>
@@ -71,8 +86,10 @@
       </c:choose>
       &nbsp;&nbsp;
    </div>
+   <!-- 페이지 수 표시 끝 -->
    
-   
+   <%@include file ="footer.jsp"  %>
+   </div>
 <script src="https://kit.fontawesome.com/ad2be14d60.js" crossorigin="anonymous"></script>
 </body>
 </html>
